@@ -407,7 +407,7 @@ def load_model(
             model_canvas = AutoModelForCausalLM.from_config(
                 model_config, trust_remote_code=cfg.trust_remote_code or False
             )
-        model_canvas.tie_weights()
+        #model_canvas.tie_weights()
         device_map = infer_auto_device_map(
             model_canvas,
             max_memory=max_memory,
@@ -621,7 +621,8 @@ def load_model(
     ):
         model.resize_token_embeddings(embeddings_len)
     else:
-        model.tie_weights()
+        #model.tie_weights()
+        pass
 
     if (
         hasattr(model, "config")
